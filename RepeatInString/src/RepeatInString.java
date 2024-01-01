@@ -15,3 +15,6 @@ public class RepeatInString {
         return replicationCount;
     }
 }
+
+// the challenge was to complete a piece of code to search in first string and tell us that how many times the second string is
+//replicated in the first string entered || also we have to check for null and empty values entered as arguments to our method
