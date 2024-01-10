@@ -1,81 +1,75 @@
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
-public class ChndShnbe {
 
     public static void main(String[] args) {
-        String[] months = {"Farvardin", "Ordibehesht", "Khordad", "Tir", "Mordad", "Shahrivar", "Mehr", "Aban", "Azar", "Dey", "Bahman", "Esfand"};
+        HashMap<String, Integer> dates = new HashMap<>();
+        dates.put("Farvardin", 31);
+        dates.put("Ordibehesht", 31);
+        dates.put("Khordad", 31);
+        dates.put("Tir", 31);
+        dates.put("Mordad", 31);
+        dates.put("Shahrivar", 31);
+        dates.put("Mehr", 30);
+        dates.put("Aban", 30);
+        dates.put("Azar", 30);
+        dates.put("Dey", 30);
+        dates.put("Bahman", 30);
+        dates.put("Esfand", 29);
+
         String[] days = {"shanbe", "1shanbe", "2shanbe", "3shanbe", "4shanbe", "5shanbe", "jome"};
-        Scanner input = new Scanner(System.in);
-        int itr = input.nextInt();
-        input.nextLine();
-        //main code
-        for (int i = 1; i <= itr; i++) {
-            int DayCount = 0;
-            String T1 = input.nextLine();
-            String[] spl1 = T1.split("\\s+");
-            int day1 = Integer.parseInt(spl1[0]);
-            String monthT1 = spl1[1];
-            String rooz = spl1[2];
-            int month1 = Arrays.asList(months).indexOf(monthT1) + 1;
-            int rooz1 = Arrays.asList(days).indexOf(rooz);
-            if (month1 < 6) {
-                DayCount += 31 - day1;
-                for (int j = 0; j <= 6 - (month1 + 1); j++) {
-                    DayCount += 31;
-                }
-                DayCount += 179;
-            }
-            if (month1 == 6) {
-                DayCount += 31 - day1;
-                DayCount += 179;
-            }
-            if (month1 > 6 && month1 < 12) {
+        String[] dateKeys = {"Farvardin", "Ordibehesht", "Khordad", "Tir", "Mordad", "Shahrivar", "Mehr", "Aban", "Azar", "Dey", "Bahman", "Esfand"};
 
-                DayCount += (30 - day1);
-                for (int k = 0; k < 11 - (month1); k++) {
-                    DayCount += 30;
-                }
-                DayCount += 29;
-            }
-            if (month1 == 12) {
-                DayCount += 29 - day1;
-            }
-            String T2 = input.nextLine();
-            String[] spl2 = T2.split("\\s+");
-            String monthT2 = spl2[1];
-            int day2 = Integer.parseInt(spl2[0]);
-            int month2 = Arrays.asList(months).indexOf(monthT2) + 1;
-            int FLG = 0;
-            if (month2 < 6) {
-                FLG += 31 - day2;
-                for (int j = 0; j <= 6 - (month2 + 1); j++) {
-                    FLG += 31;
-                }
-                FLG += 179;
-            }
-            if (month2 == 6) {
-                FLG += 31 - day2;
-                FLG += 179;
-            }
-            if (month2 > 6 && month2 < 12) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
 
-                FLG += (30 - day2);
-                for (int k = 0; k < 11 - (month2); k++) {
-                    FLG += 30;
+        for (int i = 0; i < testCases; i++) {
+            String[] today = scanner.nextLine().split(" ");
+            String[] goal = scanner.nextLine().split(" ");
+
+            if (indexOf(dateKeys, today[1]) == indexOf(dateKeys, goal[1])) {
+                if (Integer.parseInt(today[0]) - Integer.parseInt(goal[0]) >= 0) {
+                    System.out.println(days[(indexOf(days, today[2]) - ((Integer.parseInt(today[0]) - Integer.parseInt(goal[0])) % 7) + 7) % 7]);
+                } else {
+                    System.out.println(days[(indexOf(days, today[2]) + ((Integer.parseInt(goal[0]) - Integer.parseInt(today[0])) % 7) + 7) % 7]);
                 }
-                FLG += 29;
-            }
-            if (month2 == 12) {
-                FLG += 29 - day2;
-            }
-            DayCount += 365 - FLG;
-            int rooz2 = DayCount % 7;
-            if (rooz2 != 0) {
-                System.out.println(days[((rooz1 +(rooz2 - 1))%7)]);
-            }
-            if (rooz2==0){
-                System.out.println(rooz);
+            } else if (indexOf(dateKeys, today[1]) > indexOf(dateKeys, goal[1])) {
+                int step = Integer.parseInt(today[0]);
+                int temp = indexOf(dateKeys, today[1]) - 1;
+                int goalTemp = indexOf(dateKeys, goal[1]);
+
+                while (temp != goalTemp) {
+                    step += dates.get(dateKeys[temp]);
+                    temp--;
+                    if (temp < 0) {
+                        temp = dateKeys.length - 1;
+                    }
+                }
+
+                System.out.println(days[(indexOf(days, today[2]) - ((step + dates.get(goal[1]) - Integer.parseInt(goal[0])) % 7) + 7) % 7]);
+            } else {
+                int temp = indexOf(dateKeys, today[1]) + 1;
+                int goalTemp = indexOf(dateKeys, goal[1]);
+                int step = dates.get(today[1]) - Integer.parseInt(today[0]);
+
+                while (temp != goalTemp) {
+                    step += dates.get(dateKeys[temp]);
+                    temp++;
+                    if (temp >= dateKeys.length) {
+                        temp = 0;
+                    }
+                }
+
+                System.out.println(days[(indexOf(days, today[2]) + (step + Integer.parseInt(goal[0])) % 7) % 7]);
             }
         }
+    }
+
+    private static int indexOf(String[] array, String value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(value)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
