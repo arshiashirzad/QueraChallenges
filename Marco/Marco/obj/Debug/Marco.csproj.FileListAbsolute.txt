@@ -1,0 +1,6 @@
+/Users/arshia/RiderProjects/Marco/Marco/bin/Debug/Marco.exe
+/Users/arshia/RiderProjects/Marco/Marco/bin/Debug/Marco.pdb
+/Users/arshia/RiderProjects/Marco/Marco/obj/Debug/Marco.csproj.AssemblyReference.cache
+/Users/arshia/RiderProjects/Marco/Marco/obj/Debug/Marco.csproj.CoreCompileInputs.cache
+/Users/arshia/RiderProjects/Marco/Marco/obj/Debug/Marco.exe
+/Users/arshia/RiderProjects/Marco/Marco/obj/Debug/Marco.pdb
