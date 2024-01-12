@@ -1,0 +1,6 @@
+/Users/arshia/RiderProjects/Tanos/Tanos/bin/Debug/Tanos.exe
+/Users/arshia/RiderProjects/Tanos/Tanos/bin/Debug/Tanos.pdb
+/Users/arshia/RiderProjects/Tanos/Tanos/obj/Debug/Tanos.csproj.AssemblyReference.cache
+/Users/arshia/RiderProjects/Tanos/Tanos/obj/Debug/Tanos.csproj.CoreCompileInputs.cache
+/Users/arshia/RiderProjects/Tanos/Tanos/obj/Debug/Tanos.exe
+/Users/arshia/RiderProjects/Tanos/Tanos/obj/Debug/Tanos.pdb
