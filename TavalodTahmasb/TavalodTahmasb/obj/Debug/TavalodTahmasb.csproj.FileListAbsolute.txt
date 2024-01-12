@@ -1,0 +1,6 @@
+/Users/arshia/RiderProjects/TavalodTahmasb/TavalodTahmasb/bin/Debug/TavalodTahmasb.exe
+/Users/arshia/RiderProjects/TavalodTahmasb/TavalodTahmasb/bin/Debug/TavalodTahmasb.pdb
+/Users/arshia/RiderProjects/TavalodTahmasb/TavalodTahmasb/obj/Debug/TavalodTahmasb.csproj.AssemblyReference.cache
+/Users/arshia/RiderProjects/TavalodTahmasb/TavalodTahmasb/obj/Debug/TavalodTahmasb.csproj.CoreCompileInputs.cache
+/Users/arshia/RiderProjects/TavalodTahmasb/TavalodTahmasb/obj/Debug/TavalodTahmasb.exe
+/Users/arshia/RiderProjects/TavalodTahmasb/TavalodTahmasb/obj/Debug/TavalodTahmasb.pdb
